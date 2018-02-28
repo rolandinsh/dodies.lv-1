@@ -76,9 +76,23 @@
 				} 
 	}).addTo(map);
 
+var popupContent = '<div><b>' + feature.properties.name + '</b><br/>' +
+		'<p>' + feature.properties.txt + '</p>' +
+		'<img class="foto" src="' + feature.properties.img2 + '"/>' + 
+		'<div class="btn-group" role="group" aria-label="pogas">' +
+		'<button type="button" class="btn btn-default" onclick="location.href=\'#14/'+ feature.geometry.coordinates[1] +'/' + feature.geometry.coordinates[0] +'\'">' +
+		'<span class="glyphicon glyphicon-zoom-in"></span></button>' + 
+		'<button type="button" onclick="myFunc(\'code\',\'' + feature.geometry.coordinates[1] + '\',\'' + feature.geometry.coordinates[0] + '\');" class="btn btn-default">' +
+			'<span class="glyphicon glyphicon-map-marker"></span></button>' + 
+		'<button type="button" class="btn btn-default" onClick="location.href=\''+ feature.properties.url + '\'"><cms:if k_lang == "lv">Apraksts<cms:else/>Open</cms:if></button>' +
+		'</div>' +
+		'</div>';
+		layer.bindPopup(popupContent, {
+			maxWidth: 380
+		});
 
 function onEachFeature(feature, layer) {
-        layer.bindPopup(feature.properties.name);
+        layer.bindPopup(popupContent);
 }
 
 /*
