@@ -75,7 +75,12 @@
 						})})
 				} 
 	}).addTo(map);
-	
+
+
+function onEachFeature(feature, layer) {
+        layer.bindPopup(feature.properties.name);
+}
+
 /*
 	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
 		onEachFeature: onEachFeature,
@@ -113,8 +118,10 @@
 */ 
 
 
+/* 
 var markers = [];
 var icons = [];
+
 
 function onEachFeature(feature, layer) {
 	markers.push(layer);
@@ -133,6 +140,8 @@ function onEachFeature(feature, layer) {
 			maxWidth: 380
 		});
 }
+*/
+
 
 var textbox = '';
 function myFunc(code, a, b) {
