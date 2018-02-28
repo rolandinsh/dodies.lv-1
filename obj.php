@@ -98,22 +98,19 @@
         </div>
       </nav>
 <br/>
-      <!-- Main component for a primary marketing message or call to action -->
+
       <div class="jumbotron">
         <h1><cms:show k_page_title /></h1>
+
         <p><cms:get "mazais_<cms:show k_lang />" /></p>
+        <hr />
         <p><cms:get "apraksts_<cms:show k_lang />" /></p>
         
       </div>
-      
+
       <cms:reverse_related_pages 'photo_product' limit='1' masterpage='gallery.php' >
-        <img src="<cms:show gg_image />" />
+        <img class="img-fluid" src="<cms:show gg_image />" />
       </cms:reverse_related_pages>
-      
-      <div class="img-fluid" ><cms:get "foto"/></div>
-	    <div style="width: 100%"><img class="img-fluid" src="<cms:get "featured_image" />"/></div>
-
-
 
 <br />
 <hr />
