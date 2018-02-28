@@ -108,7 +108,7 @@
         
       </div>
 
-      <cms:reverse_related_pages 'photo_product' limit='1' masterpage='gallery.php' >
+      <cms:reverse_related_pages 'photo_product' limit='1' orderby='weight'  masterpage='gallery.php' >
         <img class="img-fluid" src="<cms:show gg_image />" />
       </cms:reverse_related_pages>
 
