@@ -40,17 +40,24 @@
 	var baseMaps = {"Openstreetmap": osm, "Mapbox": mapbox, "Jāņa sētas karte": JanaSetaWMS};
 	L.control.layers(baseMaps).addTo(map);
 	
-<!--
-/*
 
-<cms:pages limit="4" masterpage='obj.php'>
-     <!-- All the variables of each page cloned out of this template are available here -->
-     <cms:show k_page_title /><br>
-</cms:pages>
 
-*/
---> 
-
+	var someFeatures = [{
+	<cms:pages limit="4" masterpage='obj.php'>
+	"type": "Feature","properties": {
+		"name": "<cms:show k_page_title />",
+		"id": "<cms:admin_link />",
+		"tips": "<cms:show tips />",
+		"st": "<cms:show statuss />",
+		"km": "<cms:show garums />",
+		"txt": "<cms:show mazais_lv />",
+		"dat": "<cms:show datums />",
+		"img": "<cms:show my_image_thumb />",
+		"img2": "<cms:show featured_image/>",
+		"url": "<cms:show k_page_link />"},
+	"geometry": {"type": "Point","coordinates": [<cms:show lon />,<cms:show lat />]}
+	<cms:incr count /><cms:if count!=k_total_records>, </cms:if></cms:pages>]}
+	</cms:pages>
 
 	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
 		onEachFeature: onEachFeature,
@@ -65,6 +72,28 @@
 						})})
 				} 
 		}).addTo(map);
+
+
+
+
+/* old 
+
+	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
+		onEachFeature: onEachFeature,
+				pointToLayer: function (feature, latlng) {
+					return L.marker(latlng, {icon: L.divIcon({
+							className: feature.properties.st,
+							html: '<img src="/icons/m-' + feature.properties.tips + '.svg"/>',
+							iconSize: [20, 20],
+							iconAnchor: [12, 12],
+							popupAnchor: [0, -20],
+							labelAnchor: [20, 0]
+						})})
+				} 
+		}).addTo(map);
+
+*/ 
+
 
 var markers = [];
 var icons = [];
