@@ -57,7 +57,7 @@
 		"url": "<cms:show k_page_link />"},
 	"geometry": {"type": "Point","coordinates": [<cms:show lon />,<cms:show lat />]}
 	<cms:incr count /><cms:if count!=k_total_records>, </cms:if></cms:pages>]}
-	</cms:pages>
+	
 
 	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
 		onEachFeature: onEachFeature,
