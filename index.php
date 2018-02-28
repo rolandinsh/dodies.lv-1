@@ -73,7 +73,7 @@
 							popupAnchor: [0, -20],
 							labelAnchor: [20, 0]
 						})})
-				} 
+				}; 
 		var popupContent = '<div><b>' + feature.properties.name + '</b><br/>' +
 		'<p>' + feature.properties.txt + '</p>' +
 		'<img class="foto" src="' + feature.properties.img2 + '"/>' + 
