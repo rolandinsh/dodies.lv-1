@@ -4,9 +4,7 @@
 		<cms:field 'k_selector_checkbox' />
 		<cms:field 'k_page_title' />
 		<cms:field 'datums' sortable='1' header='Datums' format='d-M-Y'/>
-		<cms:field 'my_text' sortable='1' header='Pārbaudīts' >
-			<cms:if statuss = 'parbaudits'> <cms:show statuss /> </cms:if>
-		</cms:field>
+		<cms:field 'statuss' sortable='1' header='Pārbaudīts'/>
 		<cms:field 'garums' header='Garums' sortable='1'/>
 		<cms:field 'tips' header='Tips' sortable='1' />
 		<cms:field 'k_actions' />
