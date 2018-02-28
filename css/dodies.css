@@ -52,7 +52,7 @@ width:95%;
 color: #fff; 
 }
 div.galerija > a > img{
-margin: 7px!important;
+    margin: 0 3px 7px 0px !important;
 }
 
 .parbaudits {
@@ -72,10 +72,6 @@ opacity:0.9;
 
 img {
     vertical-align: top!important;
-}
-
-.leaflet-marker-icon {
-
 }
 
 .neparbaudits {
@@ -140,9 +136,6 @@ display: none;
          url('entypo-social.svg#entypo-social') format('svg');
     font-weight: normal;
     font-style: normal;
-}
-
-.maksas {
 }
 
 .bezmaksas {
