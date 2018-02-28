@@ -1,10 +1,10 @@
 <?php require_once( 'couch/cms.php' ); ?>
 <cms:template title='Gallery' clonable='1' dynamic_folders='1' gallery='1'>
-
-<cms:config_list_view  orderby='weight'> 
+    <cms:config_list_view orderby='weight' searchable='1' > 
+    <cms:field 'k_selector_checkbox' />
+    <cms:field 'k_actions' />
     <cms:field 'k_up_down' />
-</cms:config_list_view>
-
+    </cms:config_list_view>
   <cms:editable
       name="gg_image"
       label="Image"
@@ -15,7 +15,6 @@
       type="image"
       quality='90'
    />
-
    <cms:editable
       name="gg_thumb"
       assoc_field="gg_image"
