@@ -105,6 +105,11 @@
         <p><cms:get "apraksts_<cms:show k_lang />" /></p>
         
       </div>
+      
+      <cms:reverse_related_pages 'photo_product' limit='1' masterpage='gallery.php' >
+        <img src="<cms:show gg_image />" />
+      </cms:reverse_related_pages>
+      
       <div class="img-fluid" ><cms:get "foto"/></div>
 	    <div style="width: 100%"><img class="img-fluid" src="<cms:get "featured_image" />"/></div>
 
