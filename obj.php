@@ -108,7 +108,7 @@
       <div class="img-fluid" ><cms:get "foto"/></div>
 	    <div style="width: 100%"><img class="img-fluid" src="<cms:get "featured_image" />"/></div>
 
- <cms:dump all/>
+
 
 <br />
 <hr />
@@ -118,7 +118,7 @@
 </cms:reverse_related_pages>
 </div>
 
-</cms:if>
+
 
  </div>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
