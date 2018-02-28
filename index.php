@@ -45,7 +45,7 @@
 	var someFeatures = {
 	"type": "FeatureCollection",
 	"features": 	
-	[<cms:content_type 'application/json'/><cms:set count='0' /><cms:pages custom_field='statuss!=slikts' masterpage='obj.php' >
+	[<cms:set count='0' /><cms:pages custom_field='statuss!=slikts' masterpage='obj.php' >
 	{
 	"type": "Feature",
 	"properties": {
