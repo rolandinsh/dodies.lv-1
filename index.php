@@ -74,9 +74,7 @@
 							labelAnchor: [20, 0]
 						})})
 				} 
-	}).addTo(map);
-
-var popupContent = '<div><b>' + feature.properties.name + '</b><br/>' +
+		var popupContent = '<div><b>' + feature.properties.name + '</b><br/>' +
 		'<p>' + feature.properties.txt + '</p>' +
 		'<img class="foto" src="' + feature.properties.img2 + '"/>' + 
 		'<div class="btn-group" role="group" aria-label="pogas">' +
@@ -89,11 +87,9 @@ var popupContent = '<div><b>' + feature.properties.name + '</b><br/>' +
 		'</div>';
 		layer.bindPopup(popupContent, {
 			maxWidth: 380
-		});
+		});		
+	}).addTo(map);
 
-function onEachFeature(feature, layer) {
-        layer.bindPopup(popupContent);
-}
 
 /*
 	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
