@@ -27,9 +27,7 @@
 
 </head>
 <body>
-
 <div id="map"></div>
-
 <script type="text/javascript">
 
 	var map = L.map('map').setView([56.9, 24.5], 9);
