@@ -39,6 +39,19 @@
 	var mapbox = L.tileLayer("https://api.mapbox.com/styles/v1/normis/cilzp6g1h00grbjlwwsh52vig/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibm9ybWlzIiwiYSI6IjJiWGtJbjQifQ.oGV_GShhLMDkUbdY6R9REg");
 	var baseMaps = {"Openstreetmap": osm, "Mapbox": mapbox, "Jāņa sētas karte": JanaSetaWMS};
 	L.control.layers(baseMaps).addTo(map);
+	
+<!--
+/*
+
+<cms:pages limit="4" masterpage='obj.php'>
+     <!-- All the variables of each page cloned out of this template are available here -->
+     <cms:show k_page_title /><br>
+</cms:pages>
+
+*/
+--> 
+
+
 	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
 		onEachFeature: onEachFeature,
 				pointToLayer: function (feature, latlng) {
