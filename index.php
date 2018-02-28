@@ -62,7 +62,19 @@
 		"geometry": {"type": "Point","coordinates": [<cms:show lon />,<cms:show lat />]}}
 <cms:incr count /><cms:if count!=k_total_records>, </cms:if></cms:pages>]};
 
-	L.geoJSON(someFeatures).addTo(map);
+	L.geoJSON(someFeatures, {
+		onEachFeature: onEachFeature,
+				pointToLayer: function (feature, latlng) {
+					return L.marker(latlng, {icon: L.divIcon({
+							className: feature.properties.st,
+							html: '<img src="/icons/m-' + feature.properties.tips + '.svg"/>',
+							iconSize: [20, 20],
+							iconAnchor: [12, 12],
+							popupAnchor: [0, -20],
+							labelAnchor: [20, 0]
+						})})
+				} 
+	}).addTo(map);
 	
 /*
 	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
