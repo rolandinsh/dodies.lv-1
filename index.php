@@ -43,7 +43,10 @@
 
 
 	var someFeatures = {
-	<cms:pages masterpage='obj.php'>
+	"type": "FeatureCollection",
+	"features": 	
+	[<cms:content_type 'application/json'/><cms:set count='0' /><cms:pages custom_field='statuss!=slikts' masterpage='obj.php' >
+	{
 	"type": "Feature",
 	"properties": {
 		"name": "<cms:show k_page_title />",
@@ -56,8 +59,8 @@
 		"img": "<cms:show my_image_thumb />",
 		"img2": "<cms:show featured_image/>",
 		"url": "<cms:show k_page_link />"},
-	"geometry": {"type": "Point","coordinates": [<cms:show lon />,<cms:show lat />]}<cms:incr count /><cms:if count!=k_total_records>,</cms:if>
-	</cms:pages>};
+		"geometry": {"type": "Point","coordinates": [<cms:show lon />,<cms:show lat />]}}
+<cms:incr count /><cms:if count!=k_total_records>, </cms:if></cms:pages>]};
 
 	L.geoJSON(someFeatures).addTo(map);
 	
