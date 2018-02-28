@@ -34,24 +34,17 @@
   <cms:editable name='apraksts_en' group='garais' label='Garais angliski' type='richtext'/>
 
   <cms:editable type='image' name='featured_image' label='Mazais foto'/>
-
-
-<cms:editable 
-    type='reverse_relation' 
-    name='product_photos' 
-    masterpage='gallery.php' 
-    field='photo_product' 
-    anchor_text='View images' 
-    label='Gallery' 
-/>
-
-
-
+  <cms:editable 
+      type='reverse_relation' 
+      name='product_photos' 
+      masterpage='gallery.php' 
+      field='photo_product' 
+      anchor_text='View images' 
+      label='Gallery' 
+  />
 </cms:template>
 
 <cms:if k_is_page >
-	<!-- SINGLE OBJECT -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -115,15 +108,12 @@
       <div class="img-fluid" ><cms:get "foto"/></div>
 	    <div style="width: 100%"><img class="img-fluid" src="<cms:get "featured_image" />"/></div>
 
- <!-- <cms:dump all/> -->
-
- <cms:if k_is_page >
+ <cms:dump all/>
 
 <br />
 <hr />
 <div class="galerija">
 <cms:reverse_related_pages 'photo_product' masterpage='gallery.php' >
-    <!-- All variables of 'gallery.php' are available here -->
     <a href="<cms:show gg_image />"><img src="<cms:show gg_thumbmedium />" /></a>
 </cms:reverse_related_pages>
 </div>
@@ -131,7 +121,6 @@
 </cms:if>
 
  </div>
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
