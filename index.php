@@ -39,59 +39,6 @@
 	var mapbox = L.tileLayer("https://api.mapbox.com/styles/v1/normis/cilzp6g1h00grbjlwwsh52vig/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibm9ybWlzIiwiYSI6IjJiWGtJbjQifQ.oGV_GShhLMDkUbdY6R9REg");
 	var baseMaps = {"Openstreetmap": osm, "Mapbox": mapbox, "Jāņa sētas karte": JanaSetaWMS};
 	L.control.layers(baseMaps).addTo(map);
-	
-
-
-	var someFeatures = {
-	"type": "FeatureCollection",
-	"features": 	
-	[<cms:set count='0' /><cms:pages custom_field='statuss!=slikts' masterpage='obj.php' >
-	{
-	"type": "Feature",
-	"properties": {
-		"name": "<cms:show k_page_title />",
-		"id": "<cms:admin_link />",
-		"tips": "<cms:show tips />",
-		"st": "<cms:show statuss />",
-		"km": "<cms:show garums />",
-		"txt": "<cms:show mazais_lv />",
-		"dat": "<cms:show datums />",
-		"img": "<cms:show my_image_thumb />",
-		"img2": "<cms:show featured_image/>",
-		"url": "<cms:show k_page_link />"},
-		"geometry": {"type": "Point","coordinates": [<cms:show lon />,<cms:show lat />]}}
-<cms:incr count /><cms:if count!=k_total_records>, </cms:if></cms:pages>]};
-
-	L.geoJSON(someFeatures, {
-		onEachFeature: onEachFeature,
-				pointToLayer: function (feature, latlng) {
-					return L.marker(latlng, {icon: L.divIcon({
-							className: feature.properties.st,
-							html: '<img src="/icons/m-' + feature.properties.tips + '.svg"/>',
-							iconSize: [20, 20],
-							iconAnchor: [12, 12],
-							popupAnchor: [0, -20],
-							labelAnchor: [20, 0]
-						})})
-				}; 
-		var popupContent = '<div><b>' + feature.properties.name + '</b><br/>' +
-		'<p>' + feature.properties.txt + '</p>' +
-		'<img class="foto" src="' + feature.properties.img2 + '"/>' + 
-		'<div class="btn-group" role="group" aria-label="pogas">' +
-		'<button type="button" class="btn btn-default" onclick="location.href=\'#14/'+ feature.geometry.coordinates[1] +'/' + feature.geometry.coordinates[0] +'\'">' +
-		'<span class="glyphicon glyphicon-zoom-in"></span></button>' + 
-		'<button type="button" onclick="myFunc(\'code\',\'' + feature.geometry.coordinates[1] + '\',\'' + feature.geometry.coordinates[0] + '\');" class="btn btn-default">' +
-			'<span class="glyphicon glyphicon-map-marker"></span></button>' + 
-		'<button type="button" class="btn btn-default" onClick="location.href=\''+ feature.properties.url + '\'"><cms:if k_lang == "lv">Apraksts<cms:else/>Open</cms:if></button>' +
-		'</div>' +
-		'</div>';
-		layer.bindPopup(popupContent, {
-			maxWidth: 380
-		});		
-	}).addTo(map);
-
-
-/*
 	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
 		onEachFeature: onEachFeature,
 				pointToLayer: function (feature, latlng) {
@@ -106,32 +53,8 @@
 				} 
 		}).addTo(map);
 
-*/
-
-
-/* old 
-
-	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
-		onEachFeature: onEachFeature,
-				pointToLayer: function (feature, latlng) {
-					return L.marker(latlng, {icon: L.divIcon({
-							className: feature.properties.st,
-							html: '<img src="/icons/m-' + feature.properties.tips + '.svg"/>',
-							iconSize: [20, 20],
-							iconAnchor: [12, 12],
-							popupAnchor: [0, -20],
-							labelAnchor: [20, 0]
-						})})
-				} 
-		}).addTo(map);
-
-*/ 
-
-
-/* 
 var markers = [];
 var icons = [];
-
 
 function onEachFeature(feature, layer) {
 	markers.push(layer);
@@ -150,8 +73,6 @@ function onEachFeature(feature, layer) {
 			maxWidth: 380
 		});
 }
-*/
-
 
 var textbox = '';
 function myFunc(code, a, b) {
