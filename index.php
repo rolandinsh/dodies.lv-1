@@ -43,7 +43,7 @@
 
 
 	var someFeatures = [{
-	<cms:pages limit="4" masterpage='obj.php'>
+	<cms:pages masterpage='obj.php'>
 	"type": "Feature","properties": {
 		"name": "<cms:show k_page_title />",
 		"id": "<cms:admin_link />",
