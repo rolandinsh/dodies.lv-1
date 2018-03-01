@@ -127,6 +127,16 @@
   </body>
 </html>
 
+<cms:if "<cms:gpc 'json' />">
+   <cms:capture into='json_page' >
+
+   ... code to show your json stuff
+
+   </cms:capture>
+   <cms:abort msg=json_page />
+</cms:if>
+
+
 <cms:else />
 	<!-- OUTPUT ALL --> 
 	<em>Here is all</em>
