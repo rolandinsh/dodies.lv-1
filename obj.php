@@ -100,7 +100,7 @@
 
       <div class="jumbotron">
         <h1><cms:show k_page_title /></h1>
-	<div class="container-fluid">
+	<div class="row">
 	<div class=".col-12 .col-sm-6 .col-lg-8">        
 		<p><cms:get "mazais_<cms:show k_lang />" /></p>
         	<p><cms:get "apraksts_<cms:show k_lang />" /></p>
@@ -109,7 +109,7 @@
 		Stuff
 	</div>
 	</div>
-      </div>
+	</div>
 
       <cms:reverse_related_pages 'photo_product' limit='1' orderby='weight'  masterpage='gallery.php' >
         <img class="img-fluid" src="<cms:show gg_image />" />
