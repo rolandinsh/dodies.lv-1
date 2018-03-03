@@ -28,7 +28,7 @@
 	</cms:editable>
 	
   <cms:editable name='garums' type='text' order='4'/>
-  <cms:editable name='datums'	label='Datums' type='datetime' default_time='@current' order= '5'/>
+  <cms:editable name='datums'	label='Datums' type='datetime' default_time='@current' order= '5' />
   <cms:editable type='group' name='garais' label='Garais apraksts' order='6'/>
   <cms:editable name='apraksts_lv' group='garais' label='Garais latviski' type='richtext'/>
   <cms:editable name='apraksts_en' group='garais' label='Garais angliski' type='richtext'/>
@@ -46,99 +46,108 @@
 
 <cms:if k_is_page >
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/dodies.css">
+<html lang="<cms:show k_lang />">
+<head>
+  <title>Dodies.lv</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/css/dodies.css">
+  <link href="/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <link href="/css/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Dodies.lv</a>
+    <div class="collapse navbar-collapse" id="containerNavbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Karte <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Par lapu</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Valoda</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown04">
+            <cms:each k_supported_langs as='lang' key='lc'>
+            <a class="dropdown-item" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+          </cms:each>	
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-  </head>
-  <body>
- 
-
-  <div class="container">
-
-     <nav class="navbar navbar-light bg-faded rounded navbar-toggleable-md">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#containerNavbar" aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Dodies.lv</a>
-
-        <div class="collapse navbar-collapse" id="containerNavbar">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Karte <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Par lapu</a>
-            </li>
-
-          </ul>
-          <ul class="navbar-nav ml-auto">
-		  <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Valoda</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <cms:each k_supported_langs as='lang' key='lc'>
-			    <a class="dropdown-item" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
-			  </cms:each>	
-              </div>
-            </li>
-
-	
-</ul>
-
-		</ul>
-        </div>
-      </nav>
-<br/>
-
+  <div  style="padding-top: 40px" class="container">
+    <div class="row">
+      <div class="col-md-8">
+            
       <div class="jumbotron">
         <h1><cms:show k_page_title /></h1>
-	<div class="row">
-	<div class=".col-12 .col-sm-6 .col-lg-8">        
-		<p><cms:get "mazais_<cms:show k_lang />" /></p>
-        	<p><cms:get "apraksts_<cms:show k_lang />" /></p>
+        <cms:get "mazais_<cms:show k_lang />" />
+      </div>
+      <cms:get "apraksts_<cms:show k_lang />" />
+      </div>
+      <div class="col-md-2">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Info</h5>
+            <p class="card-text">
+              <ul>
+                <li>Tips: <cms:show tips/></li>
+                <cms:if statuss="parbaudits">
+                  <li>Garums: <cms:show garums/></li>
+                  <li>Apmeklējām: <cms:date datums format='d M, Y' /></li>
+                  <cms:else />
+                  <li>Dodies.lv nav apciemojs</li>
+                  <p>Nesen uzlabota un mežonīga taka, pa ceļam gan upe ar piknika vietu, gan biezs mežs, gan purvs ar akaci. Patiks mežonīgākas dabas cienītājiem. Paņemiet labus apavus, jo laipu nav un var nākties brist pa slapjākām vietām.</p>
+                </cms:if>
+              </ul>
+            </p>
+            <a href="#" class="btn btn-primary">Karte</a>		  
+          </div>
         </div>
-	<div class=".col-6 .col-lg-4">
-		Stuff
-	</div>
-	</div>
-	</div>
+      </div>
+    </div>
+    <br/>
+    <cms:if statuss="parbaudits">
+    <div class="row">
+    <div class="col-md-8">
+    <section data-featherlight-gallery data-featherlight-filter="a">
+    <h2>Bildes</h2>
+    <br/>
+      <div class="galerija">
+        <cms:reverse_related_pages 'photo_product' masterpage='gallery.php' >
+            <a class="thumbnail gallery" href="<cms:show gg_image />"><img src="<cms:show gg_thumbmedium />" alt="<cms:show k_page_title />" /></a>
+        </cms:reverse_related_pages>
+      </div>
+    </section>
+    </div>
+    </div>
+    </cms:if>
 
-      <cms:reverse_related_pages 'photo_product' limit='1' orderby='weight'  masterpage='gallery.php' >
-        <img class="img-fluid" src="<cms:show gg_image />" />
-      </cms:reverse_related_pages>
+  </div>
 
-<br />
-<hr />
-<div class="galerija">
-<cms:reverse_related_pages 'photo_product' masterpage='gallery.php' >
-    <a href="<cms:show gg_image />"><img src="<cms:show gg_thumbmedium />" /></a>
-</cms:reverse_related_pages>
-</div>
 
- </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="//code.jquery.com/jquery-latest.js"></script>
+  <script src="/js/featherlight.min.js"></script>
+  <script src="/js/featherlight.gallery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
 
-<cms:if "<cms:gpc 'json' />">
-   <cms:capture into='json_page' >
+  <cms:if "<cms:gpc 'json' />">
+    <cms:capture into='json_page' >
 
-   ... code to show your json stuff
+    ... code to show your json stuff
 
-   </cms:capture>
-   <cms:abort msg=json_page />
-</cms:if>
-
+    </cms:capture>
+    <cms:abort msg=json_page />
+  </cms:if>
 
 <cms:else />
 	<!-- OUTPUT ALL --> 
