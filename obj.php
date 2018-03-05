@@ -215,7 +215,7 @@
         "desc-short":"<cms:get "mazais_<cms:show k_lang />" />",
         "desc-long":"<cms:get "apraksts_<cms:show k_lang />" />",
         "images": [
-        "<cms:reverse_related_pages 'photo_product' orderby='weight' masterpage='gallery.php'><cms:set count='0' /><cms:show gg_image /><cms:incr count /><cms:if count!=k_total_records>, </cms:if></cms:reverse_related_pages>"
+            <cms:set count='0' /><cms:reverse_related_pages 'photo_product' orderby='weight' masterpage='gallery.php'>"<cms:show gg_image />"<cms:incr count /><cms:if count!=k_total_records>, </cms:if></cms:reverse_related_pages>"
             ]
     }
     </cms:capture>
