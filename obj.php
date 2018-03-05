@@ -21,7 +21,8 @@
         label='Gallery' 
         order='3'
   />
-  <cms:editable name='datums'	label='Datums' type='datetime' default_time='@current' order='4'/>
+  
+  <cms:editable name='datums' label='Datums' type='datetime' default_time='@current' order='4'/>
   <cms:editable name='garums' type='text' order='5'/>
 
   <cms:editable type='group' name='coords' label='Coordinates' order='6'>
@@ -146,19 +147,36 @@
 
             <div class="col-md-12 col-lg-3">
                 <nav id="nav-scroll" class="nav flex-column side-nav sticky-top">
+                <img style="margin-top: 10px; border: 2px solid white;" src="https://maps.googleapis.com/maps/api/staticmap?size=200x200&maptype=roadmap&markers=size:small%7C<cms:show lat/>,<cms:show lon/>&scale=2&zoom=7&key=AIzaSyB1jUocR05C6ZqNjXiG_x0x8rymLHeGaXk" alt="karte"/>
 
-                <p class="mt-3">Informācija: </p>
+			<!-- menu translations --> 
+			<cms:if k_lang == "lv">
+                <h6 class="mt-3">Informācija: </h6>
                     <ul>
                         <li class="nav-item">Tips: <cms:show tips/></li>
                     <cms:if statuss="parbaudits">
                         <li class="nav-item mt-1">Garums: <cms:show garums/>km</li>
                         <li class="nav-item mt-1">Apmeklējām: <cms:date datums format='d M, Y' /></li>
-                    <cms:else>
+                    <cms:else />
                          <li class="nav-item mt-1">Dodies.lv <b>nav apciemojis</b></li>
                     </cms:if>
                     </ul>
-                    
-                    <img src="https://maps.googleapis.com/maps/api/staticmap?size=200x200&maptype=roadmap&markers=size:mid%7Ccolor:red%7C<cms:show lat/>,<cms:show lon>&key=AIzaSyB1jUocR05C6ZqNjXiG_x0x8rymLHeGaXk" alt="karte"/>
+                <button type="button" class="btn btn-info btn-sm">Skatīt kartē</button>
+            <cms:else /><cms:if k_lang == "en">
+                <h6 class="mt-3">Information: </h6>
+                    <ul>
+                        <li class="nav-item">Type: <cms:if tips == "taka">Trail</cms:if></li>
+                    <cms:if statuss="parbaudits">
+                        <li class="nav-item mt-1">Length: <cms:show garums/>km</li>
+                        <li class="nav-item mt-1">We checked: <cms:date datums format='d M, Y' /></li>
+                    <cms:else />
+                         <li class="nav-item mt-1">Dodies.lv <b>hasn't been</b></li>
+                    </cms:if>
+                    </ul>
+                <a role="button" class="btn btn-info btn-sm" href="/#14/<cms:show lat/>/<cms:show lon/>">View on map</a>
+            </cms:if></cms:if>
+            <!-- / menu translations --> 
+            
                 </nav>
             </div><!-- / column -->
         </div><!-- / row -->
