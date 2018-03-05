@@ -157,6 +157,8 @@
                          <li class="nav-item mt-1">Dodies.lv <b>nav apciemojis</b></li>
                     </cms:if>
                     </ul>
+                    
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?size=200x200&maptype=roadmap&markers=size:mid%7Ccolor:red%7C<cms:show lat/>,<cms:show lon>&key=AIzaSyB1jUocR05C6ZqNjXiG_x0x8rymLHeGaXk" alt="karte"/>
                 </nav>
             </div><!-- / column -->
         </div><!-- / row -->
