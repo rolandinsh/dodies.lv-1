@@ -106,6 +106,9 @@
                   <p>Nesen uzlabota un mežonīga taka, pa ceļam gan upe ar piknika vietu, gan biezs mežs, gan purvs ar akaci. Patiks mežonīgākas dabas cienītājiem. Paņemiet labus apavus, jo laipu nav un var nākties brist pa slapjākām vietām.</p>
                 </cms:if>
               </ul>
+              
+              https://maps.googleapis.com/maps/api/staticmap?size=200x200&maptype=roadmap&markers=size:mid%7Ccolor:red%7C<cms:show lat/>,<cms:show lon/>&key=AIzaSyB1jUocR05C6ZqNjXiG_x0x8rymLHeGaXk
+              
             </p>
             <a href="#" class="btn btn-primary">Karte</a>		  
           </div>
