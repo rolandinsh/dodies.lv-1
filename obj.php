@@ -153,7 +153,7 @@
                     <cms:if statuss="parbaudits">
                         <li class="nav-item mt-1">Garums: <cms:show garums/>km</li>
                         <li class="nav-item mt-1">Apmeklējām: <cms:date datums format='d M, Y' /></li>
-                    <cms:else />
+                    <cms:else>
                          <li class="nav-item mt-1">Dodies.lv <b>nav apciemojis</b></li>
                     </cms:if>
                     </ul>
