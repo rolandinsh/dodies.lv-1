@@ -53,6 +53,7 @@ color: #fff;
 }
 div.galerija > a > img{
     margin: 0 3px 7px 0px !important;
+    width: 130px; 
 }
 
 .parbaudits {

@@ -31,11 +31,11 @@
       assoc_field="gg_image"
       label="Image medium Thumbnail"
       desc="Thumbnail of image above"
-      width='215'
-      height='215'
+      width='300'
+      height='300'
       crop='1'
       type="thumbnail"
-      quality='95'
+      quality='90'
    />
 
 <cms:editable 

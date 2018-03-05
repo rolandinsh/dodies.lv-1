@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><cms:if k_lang='lv'><cms:show k_page_title /> (latviski)</title>
+   	<link rel="alternate" hreflang="en" href="/obj/en/<cms:show k_page_name />" />
+   	<cms:else_if k_lang='en' /><cms:show k_page_title />  (english)</title>
+   	<link rel="alternate" hreflang="lv" href="/obj/lv/<cms:show k_page_name />" />
+   	<cms:else />Dodies.lv</title>
+    </cms:if>    
+	<meta name="description" content="Latvijas dabas taku saraksts. Šajā lapā apkopotas dabas takas, atpūtas vietas, velo maršruti - atrodi interesantāko vietu, kur brīvdienās doties pie dabas">
+	<link rel="stylesheet" href="/css/dodies.css">
+	<link href="https://dodies.lv/css/custom.css" rel="stylesheet">
+  <link href="/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+	<link href="/css/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
+	
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+  <body>
+    <div class="container clearfix">
+      <div class="page-header">
+      	<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="/"><img alt="Dodies.lv logo" src="https://dodies.lv/images/green-logo.png" style="width: 20px; height: 20px; border-radius: 3px;"></a>
+			</div> <!-- /.navbar-header -->
+			
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav ">
+			
+  			<li class="active"><a href="#">Apraksts <span class="sr-only">(current)</span></a></li>
+				<li><a href="/">Objektu karte</a></li>
+				<li><a href="/obj/lv/">Saraksts</a></li>
+				<li><a href="/par/lv">Par takām</a></li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Valoda</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04">
+							<cms:each k_supported_langs as='lang' key='lc'>
+							<a class="dropdown-item" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+						</cms:each>	
+						</div>
+					</li>
+				</ul>			  
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>

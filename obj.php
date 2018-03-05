@@ -9,135 +9,182 @@
 		<cms:field 'tips' header='Tips' sortable='1' />
 		<cms:field 'k_actions' />
 	</cms:config_list_view>
-
-	<cms:editable name="tips" label="Tips" desc="Izvēle" opt_values='taka | pikniks | tornis | parks' type='dropdown' order='1'/>
-	<cms:editable name="statuss" label="Statuss" desc="Mainīt statusu" opt_values='parbaudits | neparbaudits | slikts' opt_selected = 'neparbaudits' type='dropdown' order='2'/>
-	
-	<cms:editable type='group' name='coords' label='Coordinates' order='2'>
-		<cms:editable name='coordinates' type='row' order='2'>
-			<cms:editable group='coords' name='lat' width='130' type='text' class='col-xs-2'/>
-			<cms:editable group='coords' name='lon' width='130' type='text' class='col-xs-2'/>
-		 </cms:editable>
-	 </cms:editable>	
-
-	<cms:editable type='group' name='mazie' label='Mazais apraksts' order='3'>
-		<cms:editable name='mazie' type='row' order='3'>
-			<cms:editable name='mazais_lv' type='textarea'  group='mazie' label='Mazais latviski' class='col-xs-2'/>
-			<cms:editable name='mazais_en' type='textarea'  group='mazie' label='Mazais angliski' class='col-xs-2'/>
-		</cms:editable>
-	</cms:editable>
-	
-  <cms:editable name='garums' type='text' order='4'/>
-  <cms:editable name='datums'	label='Datums' type='datetime' default_time='@current' order= '5' />
-  <cms:editable type='group' name='garais' label='Garais apraksts' order='6'/>
-  <cms:editable name='apraksts_lv' group='garais' label='Garais latviski' type='richtext'/>
-  <cms:editable name='apraksts_en' group='garais' label='Garais angliski' type='richtext'/>
-
-  <cms:editable type='image' name='featured_image' label='Mazais foto'/>
+  
+  <cms:editable name="tips" label="Tips" desc="Izvēle" opt_values='taka | pikniks | tornis | parks' type='dropdown' order='1'/>
+  <cms:editable name="statuss" label="Statuss" desc="Mainīt statusu" opt_values='parbaudits | neparbaudits | slikts' opt_selected = 'neparbaudits' type='dropdown' order='2'/>
   <cms:editable 
-      type='reverse_relation' 
-      name='product_photos' 
-      masterpage='gallery.php' 
-      field='photo_product' 
-      anchor_text='View images' 
-      label='Gallery' 
+        type='reverse_relation' 
+        name='product_photos' 
+        masterpage='gallery.php' 
+        field='photo_product' 
+        anchor_text='View images' 
+        label='Gallery' 
+        order='3'
   />
+  <cms:editable name='datums'	label='Datums' type='datetime' default_time='@current' order='4'/>
+  <cms:editable name='garums' type='text' order='5'/>
+
+  <cms:editable type='group' name='coords' label='Coordinates' order='6'>
+	      <cms:editable group='coords' name='lat' width='130' type='text' />
+        <cms:editable group='coords' name='lon' width='130' type='text'/>
+  </cms:editable>	 
+  
+  <cms:editable type='group' name='mazie' label='Mazais apraksts' order='7'>
+			<cms:editable name='mazais_lv' type='textarea'  group='mazie' label='Mazais latviski' />
+      <cms:editable name='mazais_en' type='textarea'  group='mazie' label='Mazais angliski' />
+      <cms:editable name='mazais_ru' type='textarea'  group='mazie' label='Mazais krieviski'/>
+  </cms:editable>
+
+  <cms:editable type='group' name='garais' label='Garais apraksts' order='8' >
+    <cms:editable name='apraksts_lv' group='garais' label='Garais latviski' type='richtext'/>
+    <cms:editable name='apraksts_en' group='garais' label='Garais angliski' type='richtext'/>
+    <cms:editable name='apraksts_ru' group='garais' label='Garais krieviski' type='richtext'/>
+  </cms:editable>
+
+
 </cms:template>
 
 <cms:if k_is_page >
+
 <!DOCTYPE html>
 <html lang="<cms:show k_lang />">
+
 <head>
-  <title>Dodies.lv</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/css/dodies.css">
-  <link href="/css/featherlight.min.css" type="text/css" rel="stylesheet" />
-  <link href="/css/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Documentation Template">
+    <meta name="author" content="N.R.">
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.png">
+    <!-- Site Title -->
+    <title>Dodies.lv: <cms:show k_page_title /></title>
+    <!-- Bootstrap 4 core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="/assets/css/doc-style.css" rel="stylesheet">
+    <link href="/assets/css/prism.css" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&subset=latin-ext" rel="stylesheet">
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Dodies.lv</a>
-    <div class="collapse navbar-collapse" id="containerNavbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Karte <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Par lapu</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Valoda</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown04">
-            <cms:each k_supported_langs as='lang' key='lc'>
-            <a class="dropdown-item" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
-          </cms:each>	
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
 
-  <div  style="padding-top: 40px" class="container">
-    <div class="row">
-      <div class="col-md-8">
-            
-      <div class="jumbotron">
-        <h1><cms:show k_page_title /></h1>
-        <cms:get "mazais_<cms:show k_lang />" />
-      </div>
-      <cms:get "apraksts_<cms:show k_lang />" />
-      </div>
-      <div class="col-md-2">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Info</h5>
-            <p class="card-text">
-              <ul>
-                <li>Tips: <cms:show tips/></li>
-                <cms:if statuss="parbaudits">
-                  <li>Garums: <cms:show garums/></li>
-                  <li>Apmeklējām: <cms:date datums format='d M, Y' /></li>
-                  <cms:else />
-                  <li>Dodies.lv nav apciemojs</li>
-                  <p>Nesen uzlabota un mežonīga taka, pa ceļam gan upe ar piknika vietu, gan biezs mežs, gan purvs ar akaci. Patiks mežonīgākas dabas cienītājiem. Paņemiet labus apavus, jo laipu nav un var nākties brist pa slapjākām vietām.</p>
-                </cms:if>
-              </ul>
-            </p>
-            <a href="#" class="btn btn-primary">Karte</a>		  
-          </div>
-        </div>
-      </div>
-    </div>
-    <br/>
-    <cms:if statuss="parbaudits">
-    <div class="row">
-    <div class="col-md-8">
-    <section data-featherlight-gallery data-featherlight-filter="a">
-    <h2>Bildes</h2>
-    <br/>
-      <div class="galerija">
-        <cms:reverse_related_pages 'photo_product' masterpage='gallery.php' >
-            <a class="thumbnail gallery" href="<cms:show gg_image />"><img src="<cms:show gg_thumbmedium />" alt="<cms:show k_page_title />" /></a>
-        </cms:reverse_related_pages>
-      </div>
-    </section>
-    </div>
-    </div>
-    </cms:if>
+<body class="doc" data-spy="scroll" data-target="#nav-scroll">
 
-  </div>
+    <!-- navigation menu -->
+    <nav class="navbar doc-nav navbar-expand-lg navbar-inverse bg-primary">
+        <div class="container no-padding">
+            <a class="navbar-brand" href="index.html">Dodies.lv</a>
 
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <script src="//code.jquery.com/jquery-latest.js"></script>
-  <script src="/js/featherlight.min.js"></script>
-  <script src="/js/featherlight.gallery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+            <div class="collapse navbar-collapse" id="main-menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Apraksts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Karte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="par.html">Par lapu</a>
+                    </li>
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Valoda</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                          <cms:each k_supported_langs as='lang' key='lc'>
+                          <a class="dropdown-item" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+                        </cms:each>	
+                        </div>
+                      </li>
+                    </ul>
+                </ul>
+            </div><!-- / collapse -->
+        </div><!-- container full-width -->
+    </nav>
+    <!-- / navigation menu -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-9 content">
+                <section id="introduction">
+                    <cms:reverse_related_pages 'photo_product' limit='1' orderby='weight' masterpage='gallery.php' >
+                      <img src="<cms:show gg_image />" alt="<cms:show k_page_title />" />
+                    </cms:reverse_related_pages>
+                    <div class="item-description space-top">
+                        <h2 class="section-title mt-3"><cms:show k_page_title /></h2>
+                        <p class="lead mt-3">
+                          <cms:get "mazais_<cms:show k_lang />" />
+                        </p>
+                        <p class="mt-3">
+                          <cms:get "apraksts_<cms:show k_lang />" />
+                        </p>
+                    </div><!-- / item-description -->
+                </section><!-- / introduction -->
+                <section id="features">
+                    <h2 class="section-title">Galerija</h2>
+                    <div class="spacer">&nbsp;</div>
+
+                    <div class="row">
+                    <cms:reverse_related_pages 'photo_product' masterpage='gallery.php' >
+                        <div class="col-md-4">
+                            <div class="promo-box text-center inner-space">
+                                <p class="box-description">
+                                  <a class="thumbnail gallery" href="<cms:show gg_image />"><img src="<cms:show gg_thumbmedium />" alt="<cms:show k_page_title />" /></a>
+                                </p>
+                            </div><!-- / icon-block -->
+                        </div><!-- / column -->
+                    </cms:reverse_related_pages>
+                    </div>
+
+                </section><!-- / features -->
+            </div><!-- / column -->
+
+            <div class="col-md-12 col-lg-3">
+                <nav id="nav-scroll" class="nav flex-column side-nav sticky-top">
+
+                <p class="mt-3">Informācija: </p>
+                    <ul>
+                        <li class="nav-item">Tips: <cms:show tips/></li>
+                    <cms:if statuss="parbaudits">
+                        <li class="nav-item mt-1">Garums: <cms:show garums/>km</li>
+                        <li class="nav-item mt-1">Apmeklējām: <cms:date datums format='d M, Y' /></li>
+                    <cms:else />
+                         <li class="nav-item mt-1">Dodies.lv <b>nav apciemojis</b></li>
+                    </cms:if>
+                    </ul>
+                </nav>
+            </div><!-- / column -->
+        </div><!-- / row -->
+    </div><!-- / container -->
+
+    <footer>
+        <div class="container">
+            <p>&copy; Dodies.lv <span class="pull-right"><a href="mailto:dodies@dodies.lv">Raksti mums</a></span></p>
+        </div><!-- / container -->
+    </footer>
+
+<!-- Core JavaScript -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<!-- / Core JavaScript -->
+
+<!-- Smooth Scrolling -->
+<script src="/assets/js/jquery.easing.min.js"></script>
+<script src="/assets/js/smooth-scroll.js"></script>
+<!-- / Smooth Scrolling -->
+
+<!-- Prism -->
+<script src="/assets/js/prism.js"></script>
+<!-- / Prism -->
+
+</body>
 </html>
 
   <cms:if "<cms:gpc 'json' />">
