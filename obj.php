@@ -209,7 +209,15 @@
   <cms:if "<cms:gpc 'json' />">
     <cms:capture into='json_page' >
     <cms:content_type 'application/json'/>
-
+    {
+        "image":"<cms:reverse_related_pages 'photo_product' limit='1' orderby='weight' masterpage='gallery.php'><cms:show gg_image /></cms:reverse_related_pages>",
+        "title":"<cms:show k_page_title />",
+        "desc-short":"<cms:get "mazais_<cms:show k_lang />" />",
+        "desc-long":"<cms:get "apraksts_<cms:show k_lang />" />",
+        "images": [
+        "<cms:reverse_related_pages 'photo_product' orderby='weight' masterpage='gallery.php'><cms:set count='0' /><cms:show gg_image /><cms:incr count /><cms:if count!=k_total_records>, </cms:if></cms:reverse_related_pages>"
+            ]
+    }
     </cms:capture>
     <cms:abort msg=json_page />
   </cms:if>
