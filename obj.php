@@ -70,7 +70,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&subset=latin-ext" rel="stylesheet">
 </head>
-
 <body class="doc" data-spy="scroll" data-target="#nav-scroll">
 
     <!-- navigation menu -->
