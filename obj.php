@@ -70,13 +70,15 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&subset=latin-ext" rel="stylesheet">
+
+
 </head>
 <body class="doc" data-spy="scroll" data-target="#nav-scroll">
 
     <!-- navigation menu -->
     <nav class="navbar doc-nav navbar-expand-lg navbar-inverse bg-primary">
         <div class="container no-padding">
-            <a class="navbar-brand" href="index.html">Dodies.lv</a>
+            <a class="navbar-brand" href="/"><img src="/icons/green-logo.png" class="d-inline-block align-center" style="width: 30px; height: 30px; border-radius: 3px" alt="dodies.lv"/></a>
 
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -135,7 +137,7 @@
                         <div class="col-md-4">
                             <div class="promo-box text-center inner-space">
                                 <p class="box-description">
-                                  <a class="thumbnail gallery" href="<cms:show gg_image />"><img src="<cms:show gg_thumbmedium />" alt="<cms:show k_page_title />" /></a>
+                                  <a class="gallery" href="<cms:show gg_image />"><img src="<cms:show gg_thumbmedium />" alt="<cms:show k_page_title />" /></a>
                                 </p>
                             </div><!-- / icon-block -->
                         </div><!-- / column -->
@@ -202,6 +204,21 @@
 <!-- Prism -->
 <script src="/assets/js/prism.js"></script>
 <!-- / Prism -->
+
+<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+    $('a.gallery').featherlightGallery({
+            previousIcon: '«',
+            nextIcon: '»',
+            galleryFadeIn: 0,          /* fadeIn speed when slide is loaded */
+		    galleryFadeOut: 0          /* fadeOut speed before slide is loaded */
+        });
+    </script>
 
 </body>
 </html>
