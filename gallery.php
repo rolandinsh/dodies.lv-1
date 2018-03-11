@@ -13,7 +13,7 @@
       show_preview='1'
       preview_height='700'
       type="image"
-      quality='90'
+      quality='95'
    />
    <cms:editable
       name="gg_thumb"

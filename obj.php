@@ -24,7 +24,6 @@
   
   <cms:editable name='datums' label='Datums' type='datetime' default_time='@current' order='4'/>
   <cms:editable name='garums' type='text' order='5'/>
-
   <cms:editable type='group' name='coords' label='Coordinates' order='6'>
 	      <cms:editable group='coords' name='lat' width='130' type='text' />
         <cms:editable group='coords' name='lon' width='130' type='text'/>
@@ -93,7 +92,7 @@
                         <a class="nav-link" href="/">Karte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/par.html">Par lapu</a>
+                        <a class="nav-link" href="/<cms:show k_lang />/par/">Par lapu</a>
                     </li>
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item dropdown">
@@ -157,7 +156,9 @@
                     <ul>
                         <li class="nav-item">Tips: <cms:show tips/></li>
                     <cms:if statuss="parbaudits">
-                        <li class="nav-item mt-1">Garums: <cms:show garums/>km</li>
+                        <cms:if tips="taka">
+                            <li class="nav-item mt-1">Garums: <cms:show garums />km</li>
+                        </cms:if>
                         <li class="nav-item mt-1">Apmeklējām: <cms:date datums format='d M, Y' /></li>
                     <cms:else />
                          <li class="nav-item mt-1">Dodies.lv <b>nav apciemojis</b></li>

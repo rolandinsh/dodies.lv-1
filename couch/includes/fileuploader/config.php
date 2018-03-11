@@ -47,7 +47,7 @@ $Config['ForceSingleExtension'] = true ;
 // If set to true, validate image size (using getimagesize).
 $Config['SecureImageUploads'] = true;
 // Maximum permissible size
-$Config['k_max_upload_size'] = '2'; //Size in MB. Set to '0' to allow any size.
+$Config['k_max_upload_size'] = '10'; //Size in MB. Set to '0' to allow any size.
 // What the user can do with this connector.
 $Config['ConfigAllowedCommands'] = array('QuickUpload', 'FileUpload', 'GetFolders', 'GetFoldersAndFiles', 'CreateFolder') ;
 
