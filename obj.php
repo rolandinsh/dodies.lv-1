@@ -93,7 +93,7 @@
                         <a class="nav-link" href="/">Karte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="par.html">Par lapu</a>
+                        <a class="nav-link" href="/par.html">Par lapu</a>
                     </li>
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item dropdown">
@@ -128,12 +128,12 @@
                         </p>
                     </div><!-- / item-description -->
                 </section><!-- / introduction -->
-                <section id="features">
-                    <h2 class="section-title">Galerija</h2>
-                    <div class="spacer">&nbsp;</div>
 
+		<section id="features">
+                    <h2 class="section-title"> <cms:if k_lang == "lv">Galerija</cms:if><cms:if k_lang == "en">Photo gallery</cms:if></h2>
+                    <div class="spacer">&nbsp;</div>
                     <div class="row">
-                    <cms:reverse_related_pages 'photo_product' masterpage='gallery.php' >
+	                <cms:reverse_related_pages 'photo_product' masterpage='gallery.php' >
                         <div class="col-md-4">
                             <div class="promo-box text-center inner-space">
                                 <p class="box-description">
@@ -143,13 +143,13 @@
                         </div><!-- / column -->
                     </cms:reverse_related_pages>
                     </div>
-
                 </section><!-- / features -->
+
             </div><!-- / column -->
 
             <div class="col-md-12 col-lg-3">
                 <nav id="nav-scroll" class="nav flex-column side-nav sticky-top">
-                <img style="margin-top: 10px; border: 2px solid white;" src="https://maps.googleapis.com/maps/api/staticmap?size=200x200&maptype=roadmap&markers=size:small%7C<cms:show lat/>,<cms:show lon/>&scale=2&zoom=7&key=AIzaSyB1jUocR05C6ZqNjXiG_x0x8rymLHeGaXk" alt="karte"/>
+                <img style="margin-top: 10px; border: 2px solid white;" src="https://maps.googleapis.com/maps/api/staticmap?size=200x200&maptype=roadmap&markers=size:small%7C<cms:show lat/>,<cms:show lon/>&scale=2&zoom=7&key=AIzaSyDDdg9ThR9tWWceLn91AganDBeZTk5BvrA" alt="karte"/>
 
 			<!-- menu translations --> 
 			<cms:if k_lang == "lv">
