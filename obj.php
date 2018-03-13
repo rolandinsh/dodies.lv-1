@@ -9,26 +9,26 @@
 		<cms:field 'tips' header='Tips' sortable='1' />
 		<cms:field 'k_actions' />
 	</cms:config_list_view>
-  
+
   <cms:editable name="tips" label="Tips" desc="Izvēle" opt_values='taka | pikniks | tornis | parks' type='dropdown' order='1'/>
   <cms:editable name="statuss" label="Statuss" desc="Mainīt statusu" opt_values='parbaudits | neparbaudits | slikts' opt_selected = 'neparbaudits' type='dropdown' order='2'/>
-  <cms:editable 
-        type='reverse_relation' 
-        name='product_photos' 
-        masterpage='gallery.php' 
-        field='photo_product' 
-        anchor_text='View images' 
-        label='Gallery' 
+  <cms:editable
+        type='reverse_relation'
+        name='product_photos'
+        masterpage='gallery.php'
+        field='photo_product'
+        anchor_text='View images'
+        label='Gallery'
         order='3'
   />
-  
+
   <cms:editable name='datums' label='Datums' type='datetime' default_time='@current' order='4'/>
   <cms:editable name='garums' type='text' order='5'/>
   <cms:editable type='group' name='coords' label='Coordinates' order='6'>
 	      <cms:editable group='coords' name='lat' width='130' type='text' />
         <cms:editable group='coords' name='lon' width='130' type='text'/>
-  </cms:editable>	 
-  
+  </cms:editable>
+
   <cms:editable type='group' name='mazie' label='Mazais apraksts' order='7'>
 			<cms:editable name='mazais_lv' type='textarea'  group='mazie' label='Mazais latviski' />
       <cms:editable name='mazais_en' type='textarea'  group='mazie' label='Mazais angliski' />
@@ -85,6 +85,8 @@
 
             <div class="collapse navbar-collapse" id="main-menu">
                 <ul class="navbar-nav ml-auto">
+<!-- LV -->
+									<cms:if k_lang == "lv">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Apraksts</a>
                     </li>
@@ -94,13 +96,41 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/<cms:show k_lang />/par/">Par lapu</a>
                     </li>
+										</cms:if>
+<!-- RU -->
+									 <cms:if k_lang == "ru">
+											<li class="nav-item">
+													<a class="nav-link active" href="#">Описание</a>
+											</li>
+											<li class="nav-item">
+													<a class="nav-link" href="/">Карта</a>
+											</li>
+											<li class="nav-item">
+													<a class="nav-link" href="/<cms:show k_lang />/par/">О нас</a>
+											</li>
+											</cms:if>
+<!-- EN -->
+
+										<cms:if k_lang == "en">
+											 <li class="nav-item">
+													 <a class="nav-link active" href="#">Description</a>
+											 </li>
+											 <li class="nav-item">
+													 <a class="nav-link" href="/">Map</a>
+											 </li>
+											 <li class="nav-item">
+													 <a class="nav-link" href="/<cms:show k_lang />/par/">About us</a>
+											 </li>
+										</cms:if>
+
+
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Valoda</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                           <cms:each k_supported_langs as='lang' key='lc'>
-                          <a class="dropdown-item" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
-                        </cms:each>	
+                          <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+                        </cms:each>
                         </div>
                       </li>
                     </ul>
@@ -150,7 +180,7 @@
                 <nav id="nav-scroll" class="nav flex-column side-nav sticky-top">
                 <img style="margin-top: 10px; border: 2px solid white;" src="https://maps.googleapis.com/maps/api/staticmap?size=200x200&maptype=roadmap&markers=size:small%7C<cms:show lat/>,<cms:show lon/>&scale=2&zoom=7&key=AIzaSyDDdg9ThR9tWWceLn91AganDBeZTk5BvrA" alt="karte"/>
 
-			<!-- menu translations --> 
+			<!-- menu translations -->
 			<cms:if k_lang == "lv">
                 <h6 class="mt-3">Informācija: </h6>
                     <ul>
@@ -163,6 +193,7 @@
                     <cms:else />
                          <li class="nav-item mt-1">Dodies.lv <b>nav apciemojis</b></li>
                     </cms:if>
+												<li class="nav-item  mt-1">GPS: <cms:show coords/></li>
                     </ul>
                 <button type="button" class="btn btn-info btn-sm">Skatīt kartē</button>
             <cms:else /><cms:if k_lang == "en">
@@ -175,11 +206,12 @@
                     <cms:else />
                          <li class="nav-item mt-1">Dodies.lv <b>hasn't been</b></li>
                     </cms:if>
+												<li class="nav-item mt-1">GPS: <cms:show coords/></li>
                     </ul>
                 <a role="button" class="btn btn-info btn-sm" href="/#14/<cms:show lat/>/<cms:show lon/>">View on map</a>
             </cms:if></cms:if>
-            <!-- / menu translations --> 
-            
+            <!-- / menu translations -->
+
                 </nav>
             </div><!-- / column -->
         </div><!-- / row -->
@@ -211,6 +243,8 @@
 <script src="//code.jquery.com/jquery-latest.js"></script>
 <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
 
     <script>
     $('a.gallery').featherlightGallery({
@@ -241,7 +275,7 @@
   </cms:if>
 
 <cms:else />
-	<!-- OUTPUT ALL --> 
+	<!-- OUTPUT ALL -->
 	<em>Here is all</em>
 	<br/>
 	   		<cms:pages custom_field='statuss!=slikts' orderby='page_name' order='asc' masterpage='obj.php' >
