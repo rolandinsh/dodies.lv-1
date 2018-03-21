@@ -32,10 +32,11 @@
 
 	var map = L.map('map').setView([56.9, 24.5], 9);
 	var hash = new L.Hash(map);
-	var osm = L.tileLayer("//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {attribution: '<a href="//openstreetmap.org">OpenStreetMap</a> Contributors'}).addTo(map);
-	var JanaSetaWMS = L.tileLayer.wms("//wms.kartes.lv/DODI/wgs/15/",{format: 'image/png', attribution: '<a href="//kartes.lv">&copy; Karšu izdevniecība Jāņa sēta</a>'});
+	var osm = L.tileLayer("//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {attribution: '<a href="//openstreetmap.org">OpenStreetMap</a> Contributors'});
+	var js = L.tileLayer("//wms2.kartes.lv/DODI/wgs/15/{z}/{x}/{y}", {attribution: 'JS'}).addTo(map);
+//	var JanaSetaWMS = L.tileLayer.wms("//wms.kartes.lv/DODI/wgs/15/",{format: 'image/png', attribution: '<a href="//kartes.lv">&copy; Karšu izdevniecība Jāņa sēta</a>'});
 	var mapbox = L.tileLayer("https://api.mapbox.com/styles/v1/normis/cilzp6g1h00grbjlwwsh52vig/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibm9ybWlzIiwiYSI6IjJiWGtJbjQifQ.oGV_GShhLMDkUbdY6R9REg");
-	var baseMaps = {"Openstreetmap": osm, "Mapbox": mapbox, "Jāņa sētas karte": JanaSetaWMS};
+	var baseMaps = {"Openstreetmap": osm, "Mapbox": mapbox, "Jāņa sētas karte": js};
 	L.control.layers(baseMaps).addTo(map);
 	var jsnLayer = new L.GeoJSON.AJAX('/json/<cms:show k_lang/>.geojson',{
 		onEachFeature: onEachFeature,
