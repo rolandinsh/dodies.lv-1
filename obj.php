@@ -48,7 +48,6 @@
 
 <!DOCTYPE html>
 <html lang="<cms:show k_lang />">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,65 +77,65 @@
                     <ul class="navbar-nav">
 <!-- LV -->
 <cms:if k_lang == "lv">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Apraksts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Karte</a>
-                        </li>
-                        <li class="nav-item">
-													<a class="nav-link" href="/<cms:show k_lang />/par/">Par lapu</a>
-                        </li>
-												<li class="nav-item dropdown">
-	                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
-	                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-	                          <cms:each k_supported_langs as='lang' key='lc'>
-	                          <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
-	                        </cms:each>
-	                        </div>
-	                      </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Apraksts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/<cms:show k_lang />/">Karte</a>
+                </li>
+                <li class="nav-item">
+									<a class="nav-link" href="/<cms:show k_lang />/par/">Par lapu</a>
+                </li>
+								<li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown04">
+                    <cms:each k_supported_langs as='lang' key='lc'>
+                    <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+                  </cms:each>
+                  </div>
+                </li>
 </cms:if>
 <!-- end LV -->
 <!-- EN -->
 <cms:if k_lang == "en">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Description</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Map</a>
-                        </li>
-                        <li class="nav-item">
-													<a class="nav-link" href="/<cms:show k_lang />/par/">About us</a>
-                        </li>
-												<li class="nav-item dropdown">
-	                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
-	                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-	                          <cms:each k_supported_langs as='lang' key='lc'>
-	                          <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
-	                        </cms:each>
-	                        </div>
-	                      </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/<cms:show k_lang />/">Map</a>
+                </li>
+                <li class="nav-item">
+									<a class="nav-link" href="/<cms:show k_lang />/par/">About us</a>
+                </li>
+								<li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle dropdown-toggle-right" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
+                  <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdown04">
+                    <cms:each k_supported_langs as='lang' key='lc'>
+                    <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+                  </cms:each>
+                  </div>
+                </li>
 </cms:if>
 <!-- end EN -->
 <!-- RU -->
 <cms:if k_lang == "ru">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Описание</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Карта</a>
-                        </li>
-                        <li class="nav-item">
-													<a class="nav-link" href="/<cms:show k_lang />/par/">О нас</a>
-                        </li>
-												<li class="nav-item dropdown">
-	                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
-	                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-	                          <cms:each k_supported_langs as='lang' key='lc'>
-	                          <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
-	                        </cms:each>
-	                        </div>
-	                      </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Описание</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/<cms:show k_lang />/">Карта</a>
+                </li>
+                <li class="nav-item">
+									<a class="nav-link" href="/<cms:show k_lang />/par/">О нас</a>
+                </li>
+								<li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown04">
+                    <cms:each k_supported_langs as='lang' key='lc'>
+                    <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+                  </cms:each>
+                  </div>
+                </li>
 </cms:if>
 <!-- end RU -->
                     </ul>
@@ -158,11 +157,21 @@
 								</p>
 
 								<p class="mt-3">
-									<cms:get "apraksts_<cms:show k_lang />" />
+									<cms:if k_lang == "lv">
+										<cms:if apraksts_lv><cms:get "apraksts_lv" /><cms:else /><br/><em>Diemžēl, vai nu vēl neesam apmeklējuši šo vietu, vai arī paplašinātais apraksts vēl nav ticis uzrakstīts.</em></cms:if>
+									</cms:if>
+									<cms:if k_lang == "en">
+										<cms:if apraksts_en><cms:get "apraksts_en" /><cms:else /><br/><em>Unfortunately, we have either not visited this place yet, or the extended description has not yet been written.</em></cms:if>
+									</cms:if>
+									<cms:if k_lang == "ru">
+										<cms:if apraksts_ru><cms:get "apraksts_ru" /><cms:else /><br/><em>К сожалению, мы еще не посетили это место, или более длинное и расширенное описание еще не написано.</em></cms:if>
+									</cms:if>
 								</p>
 
-                <h1 class="gallery-title">Galerija</h1>
-                <div class="row">
+								<br/>
+								<hr/>
+
+								<div class="row">
 								<cms:reverse_related_pages 'photo_product' masterpage='gallery.php' >
                     <div class="col-lg-4 col-xs-6">
 											<a class="gallery d-block mb-4 h-100" href="<cms:show gg_image />"><img class="img-fluid" src="<cms:show gg_thumbmedium />" alt="<cms:show k_page_title />" /></a>
@@ -173,7 +182,7 @@
             </div>
             <div class="col-lg-3">
                 <div class="flex-column side-nav sticky-top mainCol info">
-									<img class="img-fluid" style="margin-top: 10px; border: 2px solid white;" src="https://maps.googleapis.com/maps/api/staticmap?size=200x200&maptype=roadmap&markers=size:small%7C<cms:show lat/>,<cms:show lon/>&scale=2&zoom=7&key=AIzaSyDDdg9ThR9tWWceLn91AganDBeZTk5BvrA" alt="karte"/>
+									<img class="img-fluid" src="https://maps.googleapis.com/maps/api/staticmap?size=200x200&maptype=roadmap&markers=size:small%7C<cms:show lat/>,<cms:show lon/>&scale=2&zoom=7&key=AIzaSyDDdg9ThR9tWWceLn91AganDBeZTk5BvrA" alt="karte"/>
 
 									<cms:if k_lang == "lv">
 
@@ -193,7 +202,7 @@
 
 									<cms:if k_lang == "en">
 										<h2 class="info-title">Info</h2>
-                    <b>Type:</b> <cms:show tips/><br />
+                    <b>Type:</b> <cms:if tips == "taka">Trail</cms:if><cms:if tips == "tornis">Birdwatching tower</cms:if><cms:if tips == "pikniks">Campground</cms:if><br />
 									<cms:if statuss="parbaudits">
 									<cms:if tips="taka">
                     <b>Length:</b> <cms:show garums />km<br />
@@ -209,7 +218,7 @@
 									<cms:if k_lang == "ru">
 
 										<h2 class="info-title">Info</h2>
-										<b>Тип:</b> <cms:show tips/><br />
+										<b>Тип:</b> <cms:if tips == "taka">Тропа</cms:if><br />
 									<cms:if statuss="parbaudits">
 									<cms:if tips="taka">
 										<b>Длина:</b> <cms:show garums />km<br />
@@ -231,41 +240,30 @@
         </div>
     </div>
 
-
-<footer class="py-3">
-
+		<footer class="footer">
         <div class="container text-center">
             <p class="float-sm-none float-md-left">© dodies.lv</p>
             <p class="float-sm-none float-md-right"><a href="mailto:dodies@dodies.lv">Raksti mums</a></p>
         </div><!-- / container -->
-
     </footer>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-		<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet" />
-    <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
-
-		<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
-
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
-
-
-
-        <script>
-        $('a.gallery').featherlightGallery({
-                previousIcon: '«',
-                nextIcon: '»',
-                galleryFadeIn: 0,          /* fadeIn speed when slide is loaded */
-    		    galleryFadeOut: 0          /* fadeOut speed before slide is loaded */
-            });
-        </script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+			<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+	    <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
+			<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	    <script>
+	    $('a.gallery').featherlightGallery({
+	            previousIcon: '«',
+	            nextIcon: '»',
+	            galleryFadeIn: 0,          /* fadeIn speed when slide is loaded */
+			    galleryFadeOut: 0          /* fadeOut speed before slide is loaded */
+	        });
+	    </script>
 
     </body>
     </html>
