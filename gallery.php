@@ -1,6 +1,6 @@
 <?php require_once( 'couch/cms.php' ); ?>
 <cms:template title='Gallery' clonable='1' dynamic_folders='1' gallery='1'>
-    <cms:config_list_view orderby='weight' searchable='1' > 
+    <cms:config_list_view orderby='weight' searchable='1' >
     <cms:field 'k_selector_checkbox' />
     <cms:field 'k_actions' />
     <cms:field 'k_up_down' />
@@ -31,19 +31,19 @@
       assoc_field="gg_image"
       label="Image medium Thumbnail"
       desc="Thumbnail of image above"
-      width='500'
-      height='500'
+      width='690'
+      height='690'
       crop='1'
       type="thumbnail"
-      quality='95'
+      quality='80'
    />
 
-<cms:editable 
+<cms:editable
     type='relation'
-    name='photo_product' 
-    masterpage='obj.php' 
-    has='one' 
-    no_gui='1' 
+    name='photo_product'
+    masterpage='obj.php'
+    has='one'
+    no_gui='1'
     label='-'
 />
 </cms:template>

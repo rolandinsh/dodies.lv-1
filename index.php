@@ -49,7 +49,7 @@
 							popupAnchor: [0, -20],
 							labelAnchor: [20, 0]
 						})})
-				} 
+				}
 		}).addTo(map);
 
 var markers = [];
@@ -59,13 +59,13 @@ function onEachFeature(feature, layer) {
 	markers.push(layer);
 	var popupContent = '<div><b>' + feature.properties.name + '</b><br/>' +
 		'<p>' + feature.properties.txt + '</p>' +
-		'<img class="foto" src="' + feature.properties.img2 + '"/>' + 
+		'<img class="foto" src="' + feature.properties.img + '"/>' +
 		'<div class="btn-group" role="group" aria-label="pogas">' +
 		'<button type="button" class="btn btn-default" onclick="location.href=\'#14/'+ feature.geometry.coordinates[1] +'/' + feature.geometry.coordinates[0] +'\'">' +
-		'<span class="glyphicon glyphicon-zoom-in"></span></button>' + 
+		'<span class="glyphicon glyphicon-zoom-in"></span></button>' +
 		'<button type="button" onclick="myFunc(\'code\',\'' + feature.geometry.coordinates[1] + '\',\'' + feature.geometry.coordinates[0] + '\');" class="btn btn-default">' +
-			'<span class="glyphicon glyphicon-map-marker"></span></button>' + 
-		'<button type="button" class="btn btn-default" onClick="location.href=\''+ feature.properties.url + '\'"><cms:if k_lang == "lv">Apraksts<cms:else/>Open</cms:if></button>' +
+			'<span class="glyphicon glyphicon-map-marker"></span></button>' +
+		'<button type="button" class="btn btn-default" onClick="location.href=\''+ feature.properties.url + '\'"><cms:if k_lang == "lv">Apraksts</cms:if><cms:if k_lang == "en">Open</cms:if><cms:if k_lang == "ru">Открыть</cms:if></button>' +
 		'</div>' +
 		'</div>';
 		layer.bindPopup(popupContent, {

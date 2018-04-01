@@ -9,73 +9,103 @@
 
 <!DOCTYPE html>
 <html lang="<cms:show k_lang />">
-
 <head>
-    <!-- Meta -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Documentation Template">
+    <meta name="description" content="">
     <meta name="author" content="N.R.">
-    <!-- Favicon -->
-    <link rel="icon" href="/assets/images/favicon.png">
-    <!-- Site Title -->
-    <title>Dodies.lv: <cms:show k_page_title /></title>
-    <!-- Bootstrap 4 core CSS -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link href="/assets/css/doc-style.css" rel="stylesheet">
-    <link href="/assets/css/prism.css" rel="stylesheet">
-    <link href="/assets/css/animate.css" rel="stylesheet">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&subset=latin-ext" rel="stylesheet">
-
-
+		<title>Dodies.lv: <cms:show k_page_title /></title>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700&amp;subset=latin-ext" rel="stylesheet">
 </head>
+
 <body class="doc" data-spy="scroll" data-target="#nav-scroll">
+  <header>
+      <nav class="navbar site-header fixed-top navbar-light navbar-expand-sm">
+          <div class="container">
+              <a class="navbar-brand" href="#">
+              <img src="/icons/green-logo.png" width="30" height="30" style="border-radius: 3px" class="d-inline-block align-top" alt="#" />  &nbsp;dodies.lv
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
 
-    <!-- navigation menu -->
-    <nav class="navbar doc-nav navbar-expand-lg navbar-inverse bg-primary">
-        <div class="container no-padding">
-            <a class="navbar-brand" href="/"><img src="/icons/green-logo.png" class="d-inline-block align-center" style="width: 30px; height: 30px; border-radius: 3px" alt="dodies.lv"/></a>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                  <ul class="navbar-nav">
+<!-- LV -->
+<cms:if k_lang == "lv">
 
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+              <li class="nav-item">
+                  <a class="nav-link" href="/<cms:show k_lang />/">Karte</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/<cms:show k_lang />/par/">Par lapu</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-toggle-right" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown04">
+                  <cms:each k_supported_langs as='lang' key='lc'>
+                  <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+                </cms:each>
+                </div>
+              </li>
+</cms:if>
+<!-- end LV -->
+<!-- EN -->
+<cms:if k_lang == "en">
 
-            <div class="collapse navbar-collapse" id="main-menu">
-                <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="/<cms:show k_lang />/">Map</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/<cms:show k_lang />/par/">About us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-toggle-right" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown04">
+                  <cms:each k_supported_langs as='lang' key='lc'>
+                  <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+                </cms:each>
+                </div>
+              </li>
+</cms:if>
+<!-- end EN -->
+<!-- RU -->
+<cms:if k_lang == "ru">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/<cms:show k_lang />/">Karte</a>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link active" href="#">Par lapu</span>
-                    </li>
-                    <ul class="navbar-nav ml-auto">
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Language
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                          <cms:each k_supported_langs as='lang' key='lc'>
-                          <a style="text-transform: uppercase" class="dropdown-item" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
-                        </cms:each>	
-                        </div>
-                      </li>
-                    </ul>
-                </ul>
-            </div><!-- / collapse -->
-        </div><!-- container full-width -->
-    </nav>
-    <!-- / navigation menu -->
+              <li class="nav-item">
+                  <a class="nav-link" href="/<cms:show k_lang />/">Карта</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/<cms:show k_lang />/par/">О нас</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-toggle-right" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown04">
+                  <cms:each k_supported_langs as='lang' key='lc'>
+                  <a class="dropdown-item" style="text-transform: uppercase" href="<cms:get "k_link_<cms:show lc/>" />"><cms:show lc/></a>
+                </cms:each>
+                </div>
+              </li>
+</cms:if>
+<!-- end RU -->
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
 
-    <div class="container">
+    <div class="container mt-6">
         <div class="row">
-            <div class="col-md-16 col-lg-12 content">
+          <div class="col-lg-9 mainCol">
+
                 <section id="introduction">
-                    
+
                     <div class="item-description space-top">
                         <p class="mt-3">
                             <cms:get "main_<cms:show k_lang />" />
@@ -101,29 +131,8 @@
 <script src="/assets/js/bootstrap.min.js"></script>
 <!-- / Core JavaScript -->
 
-<!-- Smooth Scrolling -->
-<script src="/assets/js/jquery.easing.min.js"></script>
-<script src="/assets/js/smooth-scroll.js"></script>
-<!-- / Smooth Scrolling -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
-<!-- Prism -->
-<script src="/assets/js/prism.js"></script>
-<!-- / Prism -->
-
-<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet" />
-<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
-<script src="//code.jquery.com/jquery-latest.js"></script>
-<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
-
-    <script>
-    $('a.gallery').featherlightGallery({
-            previousIcon: '«',
-            nextIcon: '»',
-            galleryFadeIn: 0,          /* fadeIn speed when slide is loaded */
-		    galleryFadeOut: 0          /* fadeOut speed before slide is loaded */
-        });
-    </script>
 
 </body>
 </html>
