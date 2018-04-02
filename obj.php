@@ -305,14 +305,17 @@
 				<table id="myTable" class="table table-bordered table-striped">
         <thead>
             <tr><td>Nosaukums</td><td>Bildes</td><td>Datums</td></tr></thead>
+
 						<cms:pages custom_field='statuss!=slikts' orderby='page_name' order='asc' masterpage='obj.php' >
 						<tr>
 									<td><a href="<cms:show k_page_link />"><cms:show k_page_title/></a> [<a href="<cms:admin_link />">Edit</a>]</td>
 
 									<td>
-	                  <cms:reverse_related_pages 'photo_product' limit='1' orderby='weight' masterpage='gallery.php' >
-									    <cms:if gg_image>+</cms:if>
+										<cms:set count_image='0' />
+	                  <cms:reverse_related_pages 'photo_product' orderby='weight' masterpage='gallery.php' >
+											<cms:incr count_image />
 								    </cms:reverse_related_pages>
+										<cms:show count_image />
                   </td>
                   <td><cms:show datums/></td>
             </tr>
